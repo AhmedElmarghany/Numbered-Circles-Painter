@@ -1,0 +1,88 @@
+:root{
+  --mainColor: rgb(17, 56, 90);
+  --secondColor: rgb(219, 219, 219);
+  --diameter: 50px;
+}
+body{
+  font-family: "SUSE", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--secondColor);
+}
+/* header styling */
+.header{
+  box-sizing: border-box;
+  height: 10vh;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h2{
+  color: var(--mainColor);
+}
+
+/* select styling */
+select{
+  font-family: "SUSE", sans-serif;
+  width: 250px;
+  height: 50px;
+  background-color: var(--mainColor);
+  color: var(--secondColor);
+  border: 0px;
+  font-size: 18px;
+  border-radius: 30px;
+  padding: 15px;
+}
+select option{
+  background-color: var(--mainColor);
+  color: var(--secondColor);
+  font-size: 18px;
+}
+option[value="50"] {
+  color: red;
+}
+
+/* container styling */
+.container{
+  width: 100%;
+  height: 90vh;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+.container h2{
+  text-align: center;
+  color: var(--secondColor);
+  opacity: 35%;
+  pointer-events: none;
+  text-transform: capitalize;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+
+/* circle styling */
+.circle{
+  position: absolute;
+  width: var(--diameter);
+  height: var(--diameter);
+  background-color: var(--mainColor);
+  border-radius: 50%;
+  counter-increment: circles-counter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  /* if it is clickable it will spoil new circles positions */
+  pointer-events:none;
+}
+.circle::after{
+  content: counter(circles-counter);
+  color: var(--secondColor);
+  font-size: calc(var(--diameter) / 2);
+}
